@@ -1,0 +1,215 @@
+html, body {
+    margin:0px;
+    height:100%;
+    background-color: #EEEEEE;
+}
+
+.navbar{
+    background-color: #84B4B1;
+}
+
+.navbar li{
+    color:black;
+    font-size: 1.25rem;
+    margin-right:1rem;
+    margin-bottom:0.5rem;
+}
+
+
+.btn-info {
+    background-color: #84B4B1 !important;
+    color:black !important;
+    border-color: #84B4B1 !important;
+    margin-top: 10px !important;
+}
+
+.btn-info:hover {
+  background: #84B4B1 !important;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+          box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+   outline: none !important;
+}
+
+.welcome{
+    background-image: url("image/pencil.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+.welcometxt span {
+    text-decoration-line: underline;
+    text-decoration-style: solid ;
+    text-decoration-color: #84B4B1;
+}
+
+.welcomebox {
+    margin-top:120px;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+.center{
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+}
+
+.registerBox h2{
+    text-align:center;
+}
+
+.welcomebtn{
+    margin-left:65px;
+}
+
+.message {
+    margin-top:10px;
+    background-color:#FFCCCB;
+    padding: 5px;
+    border-radius:10px;
+}
+
+.loginbtn {
+    margin-left: 75px;
+}
+
+.forgetpassword {
+    color:gray;
+}
+
+.field_set{
+ border: 1px #84B4B1 solid !important;
+}
+
+.addForm{
+    width:80% !important;
+}
+
+.addInput{
+    margin-left:50px;
+
+}
+
+.form-group span {
+    color:red;
+}
+
+textarea {
+    resize:none;
+}
+
+.noDisplay {
+    display:none;
+}
+
+
+.addbtn {
+    margin-top:10px;
+    margin-left:78%;
+}
+
+.formlabel {
+     text-decoration: underline !important;
+     text-decoration-color:#84B4B1 !important ;
+}
+
+.functionbtn {
+    margin-bottom:15px;
+}
+
+.functionlist {
+    display:block;
+}
+
+.trashbtn{
+    margin-left:80%;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+  transition: 0.3s !important;
+  margin-top: 10px !important;
+  border: 1px solid #84B4B1 !important;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important
+}
+
+.cardleft {
+    width: 5% !important;
+    margin-top:30px !important;
+}
+.cardright {
+    margin-top:30px !important;
+    margin-left: 75% !important;
+}
+
+.btnDetail {
+    background-color: #84B4B1 !important;
+    color:black !important;
+}
+
+.btnDetail:hover {
+    background: #84B4B1 !important;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+          box-shadow: inset 0px 0px 5px #c1c1c1 !important;
+   outline: none !important;
+}
+
+.proDetail h6 {
+   text-decoration: underline  !important;
+   font-size: 20px !important
+   margin-left: 20px !important;
+}
+
+.text-center {
+    text-align:center;
+}
+
+.viewSpan {
+    color: #84B4B1;
+}
+
+.proText {
+    margin-left: 10px;
+}
+
+.updatePro {
+    width: auto;
+}
+
+.cardFinish{
+    margin-left:86% !important;
+}
+.finishText {
+    display:block;
+    width:auto;
+    font-size: 20px;
+    color:#FF0000 !important;
+}
+
+.congratsText {
+    color:#FF0000 !important
+}
+
+.count {
+    color:#FF0000 !important;
+}
+
+.btn-profile{
+    margin-top:10px;
+    color:black;
+}

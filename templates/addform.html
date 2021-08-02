@@ -1,0 +1,78 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Add New Project
+{% endblock %}
+
+        {% block main %}
+        <main class="container p-5 addNewForm">
+        <h6>If you have a new idea, let me remember it to you </h6>
+        <h3 class="formlabel text-center">Add Project</h3>
+        {% if message !=""%}
+        <div class="small text-center"><span class="message">{{message}}</span></div>
+        {% endif %}
+            <form action="/add" method="post">
+            <fieldset class="border p-2 field_set">
+                <legend class="w-auto">General </legend>
+                 <div class="addInput form-group">
+                    <label for="projectname">Name of your project<span class="required"> * </span></label></br>
+                    <input autofocus type="text" class="form-control addForm" id="projectname" name="projectname"  placeholder="Enter project name">
+                 </div>
+                 <div class="addInput form-group">
+                    <label for="projectpurpose">Purpose<span class="required"> * </span></label></br>
+                    <input type="text" class="form-control addForm" id="projectpurpose" name="projectpurpose" placeholder="Enter project purpose">
+                 </div>
+                 <div class="addInput form-group">
+                    <label for="description">Description</label></br>
+                    <textarea class="form-control addForm" id="description" name="description" rows="3"></textarea>
+                 </div>
+            </fieldset>
+              <fieldset class="border p-2 field_set">
+                <legend class="w-auto">Details</legend>
+                 <div class="addInput form-group">
+                    <label for="languages">Languages will be use</label></br>
+                    <input type="text" class="form-control addForm" id="languages" name="languages" placeholder="Languages">
+                 </div>
+                 <div class="addInput form-group">
+                    <label for="functions">Functions will be implement<span class="required"> * </span></label></br>
+                    {% for function in functions %}
+                    <div class="addInput form-check">
+                          <input class="form-check-input functions" name="functions" type="checkbox" value="{{function.name}}" id="flexCheckDefault">
+                          <label class="form-check-label functions" for="functions">
+                           {{function.name}}
+                          </label>
+                    </div>
+                    {% endfor %}
+                    <div class="addInput form-check">
+                          <input class="form-check-input functions" name="functions" type="checkbox" value="Other" onclick="OtherChecked()" id="Othercheckbox">
+                          <label class="form-check-label functions" for="flexCheckDefault">
+                          Others
+                          </label>
+                          <input class="otherText noDisplay" type="text" id="othertext" name="text" placeholder="Others">
+                    </div>
+                    <a class="addfunclink" href="/addfunction">Wanna add more static functions?</a>
+                 </div>
+                 <div class="addInput -group">
+                    <label for="time">Expected time</label></br>
+                    <input type="text" class="form-control addForm" id="time" name="time" placeholder="Expected time"></br>
+                 </div>
+                 <div class="addInput form-group">
+                    <label for="notes">Notes</label></br>
+                    <textarea class="form-control addForm" id="notes" name="notes" rows="3"></textarea>
+                 </div>
+                  <button class="addbtn btn btn-info" type="submit">Submit</button>
+            </fieldset>
+            </form>
+    </main>
+    <script>
+        function OtherChecked(){
+            otherBox=document.querySelector("#Othercheckbox")
+            if (otherBox){
+                document.querySelector("#othertext").classList.toggle("noDisplay")
+            }
+            else{
+                document.querySelector("#othertext").classList.add("noDisplay")
+            }
+         }
+    </script>
+        {% endblock %}

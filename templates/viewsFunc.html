@@ -1,0 +1,64 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Function Details
+{% endblock %}
+
+{% block main %}
+        <main class="container p-5">
+            {% for project in projects%}
+            <h1>Project Name: <span class="viewSpan">{{project.name}}</span></h1>
+                <fieldset class="proDetail border p-2 field_set">
+                    <legend class="w-auto">General Information</legend>
+                    <h6>Description: </h6><p class="proText">{{project.description}}</p>
+                    <h6>Purpose: </h6><p class="proText">{{project.purpose}}</p>
+                    <h6>Languages: </h6><p class="proText">{{project.languages}}</p>
+                    <h6>Expected time: </h6><p class="proText">{{project.time}}</p>
+                    <h6>Any notes: </h6><p class="proText">{{project.note}}</p>
+                </fieldset>
+            {% endfor %}
+                <fieldset class=" proDetail border p-2 field_set">
+                    <legend class="w-auto">To Do List</legend>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Status</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                {% for project in projects%}
+                         {% for function in functionList %}
+                                <tr>
+                                    <td scope="row">{{function.name}}</td>
+                                    <td scope="row">{{function.status}}</td>
+                                    {% if function.status !="Complete"%}
+                                    <td  scope="row" class="text-center"><a href="/completeFunc?funcId={{function['function_id']}}&projectId={{project.id}}" class="btn btn-success"><i class="fas fa-check"></i></a><td>
+                                    <td  scope="row" class="text-center"><a href="/deleteProFunc?funcId={{function['function_id']}}&projectId={{project.id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a><td>
+                                    {% endif %}
+                                    <td scope="row" class="text-center"><td>
+                                    <td scope="row" class="text-center"><td>
+                                </tr>
+                         {% endfor %}
+
+                     </tbody>
+                     </table>
+                </fieldset>
+                <a href="/proFunction?projectId={{project.id}}">Wanna add more function to do list in this project?</a>
+                {% endfor %}
+                {% for project in projects%}
+                {% if project.status !="Complete"%}
+                <fieldset>
+                    <legend class="w-auto">Update Project</legend>
+                        <a href="/deletePro?projectId={{project.id}}" class="btn btn-danger updatePro">Delete</a>
+                        <a href="/completePro?projectId={{project.id}}" class="btn btn-success updatePro ">Complete</a>
+                 </fieldset>
+                    {% endif %}
+                    {% if project.status !="Pending"%}
+                        <h3 class="congratsText">Congratulation! You finish this project</h3>
+                    {% endif %}
+                {% endfor %}
+        </main>
+{% endblock %}

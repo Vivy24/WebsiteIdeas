@@ -1,0 +1,37 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    AddFunction
+{% endblock %}
+        {% block main %}
+        <main class=" container p-5 registerBox">
+        <h2 class="formlabel">Add function</h2>
+        {% if message !=""%}
+        <div class="small text-center"><span class="message">{{message}}</span></div>
+        {% endif %}
+        <div class ="center">
+        <form action="/addfunction" method="post">
+        <input data-toggle="tooltip" title="Enter your function name" autocomplete="off" autofocus class="form-control" name="functionName" placeholder="Enter new function name" type="text">
+        <button class="functionbtn btn btn-info" type="submit">Submit</button>
+        </form>
+        </div>
+        <div class="center functionlist">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for function in functions%}
+                    <tr>
+                      <td scope="row">{{function.name}}</td>
+                      <td><form action="/deletefunction" method="POST"><button value="{{function.id}}" type="submit" name="functionbtn" class="trashbtn btn"><i class="fas fa-trash"></i></button></form><td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+         </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block main %}
+    <main class="listbox container p-5">
+        {% for user in user%}
+            <h1>Hi {{user.name}}</h1>
+         {% endfor %}
+            <h3>Now, you have done <span class="count">{{completeFunc}}</span> project</h3>
+            <h3>Currently, you still have <span class="count">{{pendingFunc}}</span> to do</h3>
+            <a href="/lists" class="btn btn-info">View your list</a>
+            <a href="/logout" class="btn btn-danger btn-profile">Log Out</a>
+    </main>
+{% endblock %}
