@@ -15,7 +15,7 @@ app=Flask(__name__)
 
 
 
-db = SQL(os.getenv("postgres://iixqaavkjjesmr:69e9d9dbc34df72ccc8348b04bb82bb3a831c5b8a6a079e67fd726d84d75fdde@ec2-54-147-93-73.compute-1.amazonaws.com:5432/ddof4fi5igqjua"))
+db = SQL(os.getenv("DATABASE_URL"))
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
