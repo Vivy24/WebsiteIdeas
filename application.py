@@ -117,7 +117,7 @@ def add():
     if name=="" or purpose =="" or functionsAddList=="":
         return render_template("addform.html",message="Please fullfill all required information",functions=functionsList)
     if "Other" in functionsAddList:
-        otherFunc=request.form.get("text").strip().capitalize().strip()
+        otherFunc=request.form.get("text").strip().capitalize()
         functionsAddList.remove('Other')
         functionsAddList.append(otherFunc)
     db.execute("INSERT INTO projects (user_id,name,purpose,description,languages,time,note) VALUES (?,?,?,?,?,?,?)",userId,name,purpose,description,languages,expectedTime,note)
