@@ -45,9 +45,9 @@ def register():
     namepattern = re.compile("^(?=.{8,20}$)")
     passwordpattern=re.compile("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
     if bool(namepattern.search(name)) is False:
-        return render_template("register.html",message="Invalid username")
+        return render_template("register.html",message="Invalid username. Username must be 8-20 characters")
     elif bool(passwordpattern.search(password)) is False:
-        return render_template("register.html",message="Invalid password")
+        return render_template("register.html",message="Invalid password. Password must be 8 characters, includes at least one number and one letter")
     name=name.strip().upper()
     nameList=db.execute("SELECT * FROM users WHERE username=(?)",name)
     if nameList:
