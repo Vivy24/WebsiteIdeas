@@ -58,9 +58,9 @@ def register():
 
 @app.route("/guestLogin", methods=["GET"])
 def guestLogin():
-    session.clear()
-    session["user_id"] = rows[0]["id"]
-    return redirect("/lists")
+    if request.method == "GET":
+        session["user_id"] = rows[0]["id"]
+        return redirect("/lists")
     
 
 @app.route("/login",methods=["GET", "POST"])
