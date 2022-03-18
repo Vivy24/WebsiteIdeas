@@ -16,13 +16,13 @@
                 <div class="card-body">
                     <h3 class="card-title">{{project.name}}</h3>
                      {% if project.status !="Complete"%}
-                        <a href="/deletePro?projectId={{project.id}}" class="btn btn-danger cardleft"><i class="fas fa-trash col-lg-2 col-md-4 "></i></a>
-                        <a href="/completePro?projectId={{project.id}}" class="btn btn-success cardleft"><i class="fas fa-check col-lg-2 col-md-4"></i></a>
+                        <a href="/deletePro?projectId={{project.id}}" class="btn btn-danger col-lg-2 col-md-5 cardleft"><i class="fas fa-trash "></i></a>
+                        <a href="/completePro?projectId={{project.id}}" class="btn btn-success col-lg-2 col-md-5 cardleft"><i class="fas fa-check "></i></a>
                         <a class="btn btnDetail cardright" href="/viewPro?projectId={{project.id}}">View details</a>
                     {% endif %}
                     {% if project.status !="Pending"%}
                          <h6 class="finishText">Finished!</h6>
-                         <a class="btn btnDetail col-md-4 cardFinish" href="/viewPro?projectId={{project.id}}">View details</a>
+                         <a class="btn btnDetail col-md-2 cardFinish" href="/viewPro?projectId={{project.id}}">View details</a>
                     {% endif %}
 
                 </div>
