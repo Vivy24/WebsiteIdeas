@@ -58,7 +58,7 @@ def register():
 
 @app.route("/guestLogin")
 def guestLogin():
-    rows = db.execute("SELECT * FROM users WHERE username = "BAOVY1234")
+    rows = db.execute("SELECT * FROM users WHERE username = BAOVY1234)
     # Remember which user has logged in
     session["user_id"] = rows[0]["id"]
     return redirect("/lists")
