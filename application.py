@@ -56,6 +56,11 @@ def register():
     db.execute("INSERT INTO users (username, hash) VALUES (?,?)",name,hash)
     return redirect("/login")
 
+@app.route("/guestLogin", methods=["GET"])
+def guestLogin():
+    session["user_id"] = rows[0]["id"]
+    return redirect("/lists")
+    
 
 @app.route("/login",methods=["GET", "POST"])
 def login():
