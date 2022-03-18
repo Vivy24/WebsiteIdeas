@@ -58,15 +58,10 @@ def register():
 
 @app.route("/guestLogin")
 def guestLogin():
-        rows = db.execute("SELECT * FROM users WHERE username = "baovy1234",
-                          username=request.form.get("username").strip().upper());
-
-        # Remember which user has logged in
-        session["user_id"] = rows[0]["id"]
-
-        # Redirect user to home page
-
-        return redirect("/lists")
+    rows = db.execute("SELECT * FROM users WHERE username = "BAOVY1234")
+    # Remember which user has logged in
+    session["user_id"] = rows[0]["id"]
+    return redirect("/lists")
     
 
 @app.route("/login",methods=["GET", "POST"])
