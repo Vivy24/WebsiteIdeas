@@ -56,10 +56,16 @@ def register():
     db.execute("INSERT INTO users (username, hash) VALUES (?,?)",name,hash)
     return redirect("/login")
 
-@app.route("/guestLogin", methods=["GET"])
+@app.route("/guestLogin")
 def guestLogin():
-    if request.method == "GET":
+        rows = db.execute("SELECT * FROM users WHERE username = "baovy1234",
+                          username=request.form.get("username").strip().upper());
+
+        # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+
         return redirect("/lists")
     
 
