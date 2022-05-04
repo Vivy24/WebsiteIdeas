@@ -2,6 +2,10 @@
 
 # Website Address (Hosted by Heroku)
 https://websitestorage.herokuapp.com/
+
+# Languages
+    1. Front-end: EJS (Server Side Rendering)
+    2. Back-end: Python, Flask
   
 # Usage:
     1. Create new, delete or finish projects
