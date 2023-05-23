@@ -5,3 +5,4 @@ requests
 gunicorn
 psycopg2
 dotenv
+psycopg2
