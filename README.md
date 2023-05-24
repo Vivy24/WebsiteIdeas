@@ -1,5 +1,5 @@
 # Website Storage - Record Your Website Idea
-
+# Deploy - Azure App Service: https://pythonws.azurewebsites.net/
 # Languages
     1. Front-end: EJS (Server Side Rendering)
     2. Back-end: Python, Flask
