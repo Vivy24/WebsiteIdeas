@@ -1,7 +1,7 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
-    hash VARCHAR(255) NOT NULL,
+    hash VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE projects (
@@ -18,7 +18,7 @@ CREATE TABLE projects (
 );
 
 CREATE TABLE proFunctions (
-    function_id SERIAL PRIMARY_KEY, 
+    function_id SERIAL PRIMARY KEY, 
     project_id INT, 
     name VARCHAR(255) NOT NULL,
     status VARCHAR(255) DEFAULT 'Pending',
