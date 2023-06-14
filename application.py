@@ -132,9 +132,15 @@ def logout():
 def add():
     userId = session["user_id"]
     functionsList = db.execute(
-        "SELECT name FROM functions WHERE user_id = 0 OR user_id=%(userid)s", {"userid": userId})
+        "SELECT * FROM functions WHERE user_id = 0 OR user_id=%(userid)s", {"userid": userId})
+    formattedFunctionList = []
+    for function in functionsList:
+        formatedFunction = {
+            "name": function[2],
+        }
+        formattedFunctionList.append(formatedFunction)
     if request.method == "GET":
-        return render_template("addform.html", message="", functions=functionsList)
+        return render_template("addform.html", message="", functions=formattedFunctionList)
     name = request.form.get("projectname").title().strip()
     purpose = request.form.get("projectpurpose").capitalize().strip()
     description = request.form.get("description").capitalize().strip()
@@ -143,7 +149,7 @@ def add():
     note = request.form.get("notes").capitalize().strip()
     functionsAddList = request.form.getlist("functions")
     if name == "" or purpose == "" or functionsAddList == "":
-        return render_template("addform.html", message="Please fullfill all required information", functions=functionsList)
+        return render_template("addform.html", message="Please fullfill all required information", functions=formattedFunctionList)
     if "Other" in functionsAddList:
         otherFunc = request.form.get("text").strip().capitalize()
         functionsAddList.remove('Other')
@@ -170,7 +176,6 @@ def addfunction():
         formatedFunction = {
             "id": function[0],
             "name": function[2],
-            "status": function[3],
         }
         formattedFunctionList.append(formatedFunction)
 
@@ -243,8 +248,7 @@ def viewPro():
             "name": function[2],
             "status": function[3],
         }
-        print(formatedFunction)
-        formattedFunctionList.append(formatedFunction)
+    formattedFunctionList.append(formatedFunction)
 
     return render_template("viewsFunc.html", projects=formattedProjects, functionList=formattedFunctionList)
 
